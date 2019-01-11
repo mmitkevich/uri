@@ -7,7 +7,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(Uri)
 
-option(Uri_BUILD_TESTS "Build the URI tests." ON)
+option(Uri_BUILD_TESTS "Build the URI tests." OFF) # TODO
 option(Uri_BUILD_DOCS "Build the URI documentation." ON)
 option(Uri_FULL_WARNINGS "Build the library with all warnings turned on." ON)
 option(Uri_WARNINGS_AS_ERRORS "Treat warnings as errors." ON)
@@ -79,12 +79,12 @@ include_directories(${Uri_SOURCE_DIR}/src ${Uri_SOURCE_DIR}/include)
 add_subdirectory(src)
 
 # Testing
-if (Uri_BUILD_TESTS)
-  message(STATUS "Configuring tests")
-  enable_testing()
-  add_subdirectory(deps/googletest)
-  add_subdirectory(test)
-endif()
+#if (Uri_BUILD_TESTS)
+#  message(STATUS "Configuring tests")
+#  enable_testing()
+#  add_subdirectory(deps/googletest)
+#  add_subdirectory(test)
+#endif()
 
 # Documentation
 if (Uri_BUILD_DOCS)

@@ -19,8 +19,8 @@
 #include <memory>
 #include <string>
 #include <cstdlib>
-#include <network/string_view.hpp>
-#include <network/optional.hpp>
+#include <boost/utility/string_view.hpp>
+#include <boost/optional.hpp>
 #include <network/uri/config.hpp>
 #include <network/uri/uri_errors.hpp>
 #include <network/uri/detail/uri_parts.hpp>

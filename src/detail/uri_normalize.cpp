@@ -7,14 +7,8 @@
 #include <vector>
 #include <algorithm>
 
-#ifdef NETWORK_URI_EXTERNAL_BOOST
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/join.hpp>
-namespace network_boost = boost;
-#else   // NETWORK_URI_EXTERNAL_BOOST
-#include "../boost/algorithm/string/split.hpp"
-#include "../boost/algorithm/string/join.hpp"
-#endif  // NETWORK_URI_EXTERNAL_BOOST
 
 #include "uri_normalize.hpp"
 #include "uri_percent_encode.hpp"
@@ -27,7 +21,7 @@ std::string normalize_path_segments(string_view path) {
 
   if (!path.empty()) {
     std::vector<std::string> path_segments;
-    network_boost::split(path_segments, path, [](char ch) {
+    boost::split(path_segments, path, [](char ch) {
       return ch == '/';
     });
 
