@@ -4,7 +4,7 @@
 #include <optional>
 namespace network {
     template<typename T> using optional = std::optional<T>;
-    inline constexpr nullopt_t nullopt{};
+    constexpr std::nullopt_t nullopt = std::nullopt;
 };
 #else
 #include <boost/optional.hpp>

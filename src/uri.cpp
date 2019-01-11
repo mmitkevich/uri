@@ -53,7 +53,7 @@ inline string_view to_string_view(const std::string &uri,
 
 inline optional<std::string> make_arg(optional<string_view> view) {
   if (view) {
-    return view->to_string();
+    return to_string(*view);
   }
   return nullopt;
 }
@@ -556,11 +556,11 @@ uri uri::make_relative(const uri &other) const {
 
   optional<string_type> query, fragment;
   if (other.has_query()) {
-    query = other.query().to_string();
+    query = network::to_string(other.query());
   }
 
   if (other.has_fragment()) {
-    fragment = other.fragment().to_string();
+    fragment = network::to_string(other.fragment());
   }
 
   network::uri result;
