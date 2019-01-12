@@ -1,8 +1,8 @@
 #pragma once
-
-#if 0 //__cplusplus >= 201703L
-namespace network {
+#include <string>
+#if __cplusplus >= 201703L
 #include <string_view>
+namespace network {
 using string_view = std::string_view;
 };
 #else
@@ -12,7 +12,7 @@ using string_view = boost::string_view;
 };
 #endif
 namespace network {
-std::string to_string(const network::string_view &s) {
+inline std::string to_string(const network::string_view &s) {
     return std::string(s.begin(), s.end());
 }
 }; //network

@@ -29,9 +29,10 @@ class CryptoxConan(ConanFile):
         self.copy("*.dylib*", dst="lib", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
-        self.copy("include/*", dst="include")
-        
+        self.copy(pattern="*", dst="include", src="include")
+
     def package_info(self):
-        self.cpp_info.libs = ["uri"]
-
-
+        self.cpp_info.libs = ["network-uri"]
+        
+    def requirements(self):
+        self.requires("boost/1.69.0@conan/stable")

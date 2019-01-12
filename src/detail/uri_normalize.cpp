@@ -59,7 +59,7 @@ std::string normalize_path_segments(string_view path) {
 }
 
 std::string normalize_path(string_view path, uri_comparison_level level) {
-  auto result = path.to_string();
+  auto result = to_string(path);
 
   if (uri_comparison_level::syntax_based == level) {
     // case normalization

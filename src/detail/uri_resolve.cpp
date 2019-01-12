@@ -60,7 +60,7 @@ std::string remove_dot_segments(std::string input) {
 }
 
 std::string remove_dot_segments(string_view path) {
-  return remove_dot_segments(path.to_string());
+  return remove_dot_segments(to_string(path));
 }
 
 // implementation of http://tools.ietf.org/html/rfc3986#section-5.2.3
@@ -75,7 +75,7 @@ std::string merge_paths(const uri& base, const uri& reference) {
     result.append(std::begin(base_path), std::end(last_slash));
   }
   if (reference.has_path()) {
-    result.append(reference.path().to_string());
+    result.append(to_string(reference.path()));
   }
   return remove_dot_segments(string_view(result));
 }
